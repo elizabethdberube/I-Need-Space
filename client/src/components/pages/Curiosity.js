@@ -6,7 +6,7 @@ function Curiosity() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [FHAZ, setFHAZ] = useState([]);
 
-    const apiKey = "Zo8kqmCDwTNnP4Z5aMz5uyoVq6wR2BFGTT9tqNGe"
+  
 
 
     useEffect(() => {
