@@ -6,7 +6,6 @@ function Practice() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [practice, setPractice] = useState([]);
 
-    const apiKey = "Zo8kqmCDwTNnP4Z5aMz5uyoVq6wR2BFGTT9tqNGe"
 
 
     useEffect(() => {
