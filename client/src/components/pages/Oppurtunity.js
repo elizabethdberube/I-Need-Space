@@ -6,7 +6,7 @@ function Oppurtunity() {
     const [isLoaded, setIsLoaded] = useState(false);
 
     const [NAVCAM, setNAVCAM] = useState([]);
-    const apiKey = "Zo8kqmCDwTNnP4Z5aMz5uyoVq6wR2BFGTT9tqNGe"
+   
 
 
     useEffect(() => {
