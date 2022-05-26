@@ -1,0 +1,12 @@
+[
+    {
+        "username": "admin",
+        "email": "admin@ineedspace.com",
+        "password": "password"
+    },
+    {
+        "username": "testuser",
+        "email": "test@gmail.com",
+        "password": "password"
+    }
+]

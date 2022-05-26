@@ -1,0 +1,10 @@
+[
+    {
+        "commentAuthor": "admin",
+        "commentText": "That's awesome!"
+    },
+    {
+        "commentAuthor": "testuser",
+        "commentText": "Yay!"
+    }
+]
