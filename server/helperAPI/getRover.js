@@ -10,7 +10,8 @@ module.exports = {
     },
     roverNAVCAM: async () => {
         return await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=NAVCAM&api_key=${API_KEY}`).then((res) => res.json());
-    }
+    },
+
 };
 // const search = async () =>
 

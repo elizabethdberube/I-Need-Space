@@ -30,6 +30,10 @@ type Auth {
     user(username: String!): User
     comments(username: String): [Comment]
     comment(commentId: ID!): Comment
+    FHAZ(name: String, status: String, img_src: String, landing_date: String, launch_date: String): String
+    RHAZ(name: String, status: String, img_src: String, landing_date: String, launch_date: String): String
+    NAVCAM(name: String, status: String, img_src: String, landing_date: String, launch_date: String):  String
+    spacePic(date: String, explanation: String, url: String, title: String): String
   }
 
   type Mutation {

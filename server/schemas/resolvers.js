@@ -1,6 +1,8 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Comment, User } = require('../models');
 const { signToken } = require('../../server/utils/auth');
+const { roverFHAZ, roverNAVCAM, roverRHAZ } = require('../helperAPI/getRover');
+const { dailyPic } = require('../helperAPI/getPic')
 
 const resolvers = {
 
@@ -18,7 +20,26 @@ const resolvers = {
         comment: async (parent, { commentId }) => {
             return Comment.findOne({ _id: commentId });
         },
-
+        FHAZ: async () => {
+            const result = roverFHAZ()
+            console.log(result)
+            return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date }
+        },
+        RHAZ: async () => {
+            const result = roverRHAZ()
+            console.log(result)
+            return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date }
+        },
+        NAVCAM: async () => {
+            const result = roverNAVCAM()
+            console.log(result)
+            return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date }
+        },
+        spacePic: async () => {
+            const result = dailyPic()
+            console.log(result)
+            return { date: result.date, explanation: result.explanation, url: result.url, title: result.title }
+        },
     },
 
     Mutation: {
@@ -51,15 +72,17 @@ const resolvers = {
                 { username: commentAuthor },
                 { $addToSet: { comments: comment._id } }
             );
-
             return comment;
-
         },
 
         removeComment: async (parent, { commentId }) => {
             return Comment.findOneAndDelete({ _id: commentId });
         },
-    }
+    },
+
+
+
+
 }
 
 module.exports = resolvers;
