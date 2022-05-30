@@ -1,4 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+
+
+
+
+
+// import React from 'react';
+
+
 
 // navbar assigning section to anchor tag
 function Navigation({ currentPage, handlePageChange }) {
@@ -50,6 +59,9 @@ function Navigation({ currentPage, handlePageChange }) {
 
     );
 }
+
+
+
 
 
 export default Navigation;
