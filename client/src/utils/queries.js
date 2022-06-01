@@ -55,3 +55,67 @@ query myComments {
     }
 }
 `;
+
+export const FHAZ_Data = gql`
+query FHAZ {
+    FHAZ{
+        name
+        status
+        img_src
+        landing_date
+        landing_date
+       
+    }
+}
+`;
+
+export const RHAZ_Data = gql`
+query RHAZ {
+    RHAZ{
+        name
+        status
+        img_src
+        landing_date
+        landing_date
+       
+    }
+}
+`;
+
+export const NAVCAM_Data = gql`
+query NAVCAM {
+    NAVCAM{
+        name
+        status
+        img_src
+        landing_date
+        landing_date
+       
+    }
+}
+`;
+
+export const spacePic_Data = gql`
+query spacePic {
+    spacePic{
+        explanation
+        date
+        url
+        title
+    }
+}
+`;
+
+export const twitter_Data = gql`
+query twitterResult {
+    twitterResult{
+        name
+        date
+        url
+        source
+        screen_name
+        description
+        location
+    }
+}
+`;
