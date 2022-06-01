@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./components/home/Home";
 import Project from "./components/Project";
-import Preloader from "../src/components/Pre";
+import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 
 import "./style.css";
@@ -15,8 +15,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
 
+    <>
+      <Home />
 
-    <Home />
+      <Navbar />
+      <Preloader />
+    </>
+
+
 
   );
 }
