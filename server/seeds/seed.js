@@ -9,7 +9,13 @@ db.once('open', async () => {
         await User.deleteMany({});
         await Comment.deleteMany({});
 
-        await User.insertMany(userData);
+        // await User.insertMany(userData);
+
+        for (let i = 0; i < userData.length; i++) {
+            const user = userData[i];
+            await User.create(user);
+        }
+
 
         for (let i = 0; i < commentData.length; i++) {
             const { _id, commentAuthor } = await Comment.create(commentData[i]);

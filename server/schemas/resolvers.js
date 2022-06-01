@@ -2,11 +2,14 @@ const { AuthenticationError } = require('apollo-server-express');
 const { Comment, User } = require('../models');
 const { signToken } = require('../../server/utils/auth');
 const { roverFHAZ, roverNAVCAM, roverRHAZ } = require('../helperAPI/getRover');
-const { dailyPic } = require('../helperAPI/getPic')
+const { dailyPic } = require('../helperAPI/getPic');
+const { search } = require('../helperAPI/getTwitter');
+
 
 const resolvers = {
 
     Query: {
+
         users: async () => {
             return User.find({}).populate('comments');
         },
@@ -20,29 +23,48 @@ const resolvers = {
         comment: async (parent, { commentId }) => {
             return Comment.findOne({ _id: commentId });
         },
+
+        myComments: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOne({ _id: context.user._id });
+            }
+            throw new AuthenticationError('Username or password is incorrect');
+        },
+
+        // query for Rover Front Hazard Cam photos 
         FHAZ: async () => {
-            const result = roverFHAZ()
-            console.log(result)
-            return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date }
+            const result = await roverFHAZ()
+
+            return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date };
         },
+        // query for Rover Rear Hazard Cam photos 
         RHAZ: async () => {
-            const result = roverRHAZ()
-            console.log(result)
+            const result = await roverRHAZ()
+
             return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date }
         },
+        // query for Rover NAVCAM photos query
         NAVCAM: async () => {
-            const result = roverNAVCAM()
-            console.log(result)
+            const result = await roverNAVCAM()
+
             return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date }
         },
+        // query for picture of the day photo 
         spacePic: async () => {
-            const result = dailyPic()
-            console.log(result)
+            const result = await dailyPic()
+
             return { date: result.date, explanation: result.explanation, url: result.url, title: result.title }
+        },
+        // query for Twitter posts
+        getTwitter: async () => {
+            const twitterArray = await search()
+            console.log("twitterArray", twitterArray)
+            return twitterArray
         },
     },
 
     Mutation: {
+
         addUser: async (parent, { username, email, password }) => {
             // create user
             const user = await User.create({ username, email, password });
@@ -50,14 +72,18 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+
         login: async (parent, { email, password }) => {
             // check email
+
             const user = await User.findOne({ email });
+            console.log(user)
             if (!user) {
                 throw new AuthenticationError('Username or password is incorrect');
             }
             // check password
             const correctPass = await user.isCorrectPassword(password);
+            console.log(correctPass)
             if (!correctPass) {
                 throw new AuthenticationError('Username or password is incorrect');
             }
@@ -65,23 +91,54 @@ const resolvers = {
             return { token, user };
         },
 
-        addComment: async (parent, { commentAuthor, commentText }) => {
-            const comment = await Comment.create({ commentAuthor, commentText });
+        addComment: async (parent, { commentText }, context) => {
+            // the next line is for testing purposes if you are not testing then leave commented out  
+            // context.user = await User.findOne({ email: "admin@ineedspace.com" });
+            if (context.user) {
+                const comment = await Comment.create({
+                    commentText,
+                    commentAuthor: context.user.username,
+                });
 
-            await User.findOneAndUpdate(
-                { username: commentAuthor },
-                { $addToSet: { comments: comment._id } }
-            );
-            return comment;
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { comments: comment._id } }
+                );
+                return comment;
+            }
+            throw new AuthenticationError('Not logged in');
         },
 
-        removeComment: async (parent, { commentId }) => {
-            return Comment.findOneAndDelete({ _id: commentId });
+        updateComment: async (parent, { _id, commentText }, context) => {
+            // the next line is for testing purposes if you are not testing then leave commented out  
+            // context.user = await User.findOne({ email: "admin@ineedspace.com" });
+            if (context.user) {
+                return await Comment.findOneAndUpdate({ _id, commentAuthor: context.user.username },
+                    { $set: { commentText } });
+            }
+            throw new AuthenticationError('Not logged in');
         },
+
+
+        removeComment: async (parent, { commentId }, context) => {
+            // the next line is for testing purposes if you are not testing then leave commented out unless 
+            // context.user = await User.findOne({ email: "admin@ineedspace.com" })
+            if (context.user) {
+                console.log(commentId)
+                const comment = await Comment.findOneAndDelete({
+                    _id: commentId,
+                    commentAuthor: context.user.username,
+                });
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { comments: comment._id } }
+                );
+                return comment;
+            }
+            throw new AuthenticationError('Not logged in');
+        }
+
     },
-
-
-
 
 }
 
