@@ -7,7 +7,7 @@ function Mission() {
 
     const [RHAZ, setRHAZ] = useState([]);
 
-    const apiKey = "Zo8kqmCDwTNnP4Z5aMz5uyoVq6wR2BFGTT9tqNGe"
+ 
 
 
     useEffect(() => {
