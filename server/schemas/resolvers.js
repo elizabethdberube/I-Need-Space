@@ -32,33 +32,38 @@ const resolvers = {
         },
 
         // query for Rover Front Hazard Cam photos 
-        FHAZ: async () => {
-            const result = await roverFHAZ()
+        getFHAZ: async () => {
+
+            let result = await roverFHAZ()
+            result = result.data;
 
             return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date };
         },
         // query for Rover Rear Hazard Cam photos 
-        RHAZ: async () => {
-            const result = await roverRHAZ()
+        getRHAZ: async () => {
+            let result = await roverRHAZ()
+            result = result.data;
 
             return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date }
         },
         // query for Rover NAVCAM photos query
-        NAVCAM: async () => {
-            const result = await roverNAVCAM()
+        getNAVCAM: async () => {
+            let result = await roverNAVCAM()
+            result = result.data;
 
             return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date }
         },
         // query for picture of the day photo 
         spacePic: async () => {
-            const result = await dailyPic()
+            let result = await dailyPic()
+            result = result.data;
 
             return { date: result.date, explanation: result.explanation, url: result.url, title: result.title }
         },
         // query for Twitter posts
         getTwitter: async () => {
             const twitterArray = await search()
-            console.log("twitterArray", twitterArray)
+
             return twitterArray
         },
     },
@@ -83,7 +88,7 @@ const resolvers = {
             }
             // check password
             const correctPass = await user.isCorrectPassword(password);
-            console.log(correctPass)
+
             if (!correctPass) {
                 throw new AuthenticationError('Username or password is incorrect');
             }
@@ -93,7 +98,7 @@ const resolvers = {
 
         addComment: async (parent, { commentText }, context) => {
             // the next line is for testing purposes if you are not testing then leave commented out  
-            // context.user = await User.findOne({ email: "admin@ineedspace.com" });
+            //  context.user = await User.findOne({ email: "admin@ineedspace.com" });
             if (context.user) {
                 const comment = await Comment.create({
                     commentText,
@@ -122,7 +127,7 @@ const resolvers = {
 
         removeComment: async (parent, { commentId }, context) => {
             // the next line is for testing purposes if you are not testing then leave commented out unless 
-            // context.user = await User.findOne({ email: "admin@ineedspace.com" })
+            //  context.user = await User.findOne({ email: "admin@ineedspace.com" })
             if (context.user) {
                 console.log(commentId)
                 const comment = await Comment.findOneAndDelete({
