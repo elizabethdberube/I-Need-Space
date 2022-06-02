@@ -1,8 +1,10 @@
 import React from "react";
 import Home from "./components/home/Home";
-import Project from "./components/Project";
+
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
+
+
 
 import "./style.css";
 import "./App.css";
@@ -20,6 +22,7 @@ function App() {
 
       <Navbar />
       <Preloader />
+
     </>
 
 
