@@ -76,10 +76,9 @@ type Auth {
     user(username: String!): User
     comments(username: String): [Comment]
     comment(commentId: ID!): Comment
-
-    FHAZ(name: String): FHAZ
-    RHAZ(name: String): RHAZ
-    NAVCAM(name: String):  NAVCAM
+    getFHAZ(name: String): FHAZ
+    getRHAZ(name: String): RHAZ
+    getNAVCAM(name: String):  NAVCAM
     spacePic(explanation: String): spacePic
     getTwitter(name: String): [twitterResult]
     myComments: User
