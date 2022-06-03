@@ -3,6 +3,7 @@ import Home from "./components/home/Home";
 import Project from "./components/Project";
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
+import Login from "./components/Login";
 
 import "./style.css";
 import "./App.css";
