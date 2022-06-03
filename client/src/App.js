@@ -4,6 +4,7 @@ import Project from "./components/Project";
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
+import Picture from "./components/Picture";
 
 import "./style.css";
 import "./App.css";
@@ -28,4 +29,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

@@ -7,7 +7,7 @@ function Mission() {
 
   const [RHAZ, setRHAZ] = useState([]);
 
-  const API_KEY = process.env.API_KEY;
+  let API_KEY = 'Zo8kqmCDwTNnP4Z5aMz5uyoVq6wR2BFGTT9tqNGe';
 
 
   useEffect(() => {

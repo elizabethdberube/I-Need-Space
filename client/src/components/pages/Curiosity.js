@@ -7,7 +7,7 @@ function Curiosity() {
   const [FHAZ, setFHAZ] = useState([]);
 
 
-  const API_KEY = process.env.API_KEY;
+  let API_KEY = 'Zo8kqmCDwTNnP4Z5aMz5uyoVq6wR2BFGTT9tqNGe';
 
   useEffect(() => {
     fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=FHAZ&api_key=${API_KEY}`)
