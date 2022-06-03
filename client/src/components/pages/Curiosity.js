@@ -2,67 +2,67 @@ import React, { useState, useEffect } from 'react';
 
 // rover page
 function Curiosity() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [FHAZ, setFHAZ] = useState([]);
-
-  
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [FHAZ, setFHAZ] = useState([]);
 
 
-    useEffect(() => {
-        fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=FHAZ&api_key=${apiKey}`)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setIsLoaded(true);
+  const API_KEY = process.env.API_KEY;
 
-                    const { photos } = result;
+  useEffect(() => {
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=FHAZ&api_key=${API_KEY}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
 
-                    const { img_src, rover, camera } = photos[0];
-                    const { full_name } = camera;
-                    const { name, status, landing_date, launch_date } = rover;
+          const { photos } = result;
 
-
-                    setFHAZ({ name: name, status: status, img_src: img_src, full_name: full_name, landing_date: landing_date, launch_date: launch_date });
-
-
-                },
-
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            )
-    }, [])
+          const { img_src, rover, camera } = photos[0];
+          const { full_name } = camera;
+          const { name, status, landing_date, launch_date } = rover;
 
 
-
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-        return <div>Loading...</div>;
-    } else {
-        return (
+          setFHAZ({ name: name, status: status, img_src: img_src, full_name: full_name, landing_date: landing_date, launch_date: launch_date });
 
 
-            <div>
+        },
 
-                <p>Rover's name: {FHAZ.name}</p>
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+  }, [])
 
-                <p>Curiosity's status: {FHAZ.status}</p>
 
-                <p>Camera: {FHAZ.full_name}</p>
 
-                <p>Date Curiosity was launched: {FHAZ.launch_date}</p>
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>;
+  } else {
+    return (
 
-                <p>Date Curiosity landed: {FHAZ.landing_date}</p>
 
-                <img src={FHAZ.img_src}></img>
+      <div>
 
-            </div>
+        <p>Rover's name: {FHAZ.name}</p>
 
-        );
-    }
+        <p>Curiosity's status: {FHAZ.status}</p>
+
+        <p>Camera: {FHAZ.full_name}</p>
+
+        <p>Date Curiosity was launched: {FHAZ.launch_date}</p>
+
+        <p>Date Curiosity landed: {FHAZ.landing_date}</p>
+
+        <img src={FHAZ.img_src}></img>
+
+      </div>
+
+    );
+  }
 }
 
 
