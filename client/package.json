@@ -29,7 +29,8 @@
     "react-tsparticles": "^1.42.2",
     "typewriter-effect": "^2.18.2",
     "web-vitals": "^2.1.4",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "react-tweet-embed": "1.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
