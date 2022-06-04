@@ -2,11 +2,11 @@ import React, { useState, useEffect, Component } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from "./components/home/Home";
 
-
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Picture from "./components/Picture";
+import Camera from "./components/Camera";
 import Rover from "./components/Rover";
 
 
@@ -55,13 +55,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Rover" element={<Rover />} />
+
+            <Route path="/Camera" element={<Camera />} />
             <Route path="/Picture" element={<Picture />} />
 
             <Route path="/Login" element={<Login />} />
-
-
-
-
 
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
