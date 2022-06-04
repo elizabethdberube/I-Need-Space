@@ -57,39 +57,39 @@ query myComments {
 `;
 
 export const FHAZ_Data = gql`
-query FHAZ {
-    FHAZ{
+query getFHAZ {
+    getFHAZ{
         name
         status
         img_src
         landing_date
-        landing_date
+        launch_date
        
     }
 }
 `;
 
 export const RHAZ_Data = gql`
-query RHAZ {
-    RHAZ{
+query getRHAZ {
+    getRHAZ{
         name
         status
         img_src
         landing_date
-        landing_date
+        launch_date
        
     }
 }
 `;
 
 export const NAVCAM_Data = gql`
-query NAVCAM {
-    NAVCAM{
+query getNAVCAM {
+    getNAVCAM{
         name
         status
         img_src
         landing_date
-        landing_date
+        launch_date
        
     }
 }
@@ -107,15 +107,16 @@ query spacePic {
 `;
 
 export const twitter_Data = gql`
-query twitterResult {
-    twitterResult{
-        name
-        date
-        url
-        source
-        screen_name
-        description
-        location
+query getTwitter {
+    getTwitter{
+    name
+    created_at
+    text
+    url
+    source
+    description
+    screen_name
+    location
     }
 }
 `;

@@ -1,11 +1,12 @@
 import React, { useState, useEffect, Component } from "react";
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from "./components/home/Home";
 
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Picture from "./components/Picture";
- michael-branch4
+
 import Rover from "./components/Rover";
 
 
@@ -28,6 +29,11 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
+
 function App() {
   const [load, upadateLoad] = useState(true);
 
@@ -40,23 +46,25 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar />
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Rover" element={<Rover />} />
+    <ApolloProvider client={client}>
+      <Router>
+        <Preloader load={load} />
+        <div className="App" id={load ? "no-scroll" : "scroll"}>
+          <Navbar />
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Rover" element={<Rover />} />
 
 
 
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
 
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 }
 

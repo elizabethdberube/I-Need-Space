@@ -76,11 +76,11 @@ type Auth {
     user(username: String!): User
     comments(username: String): [Comment]
     comment(commentId: ID!): Comment
-    getFHAZ(name: String): FHAZ
-    getRHAZ(name: String): RHAZ
-    getNAVCAM(name: String):  NAVCAM
-    spacePic(explanation: String): spacePic
-    getTwitter(name: String): [twitterResult]
+    getFHAZ: FHAZ
+    getRHAZ: RHAZ
+    getNAVCAM:  NAVCAM
+    spacePic: spacePic
+    getTwitter: [twitterResult]
     myComments: User
   }
 
