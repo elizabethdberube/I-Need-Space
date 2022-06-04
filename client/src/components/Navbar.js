@@ -98,6 +98,16 @@ function NavBar() {
                             </Nav.Link>
                         </Nav.Item>
 
+                        <Nav.Item>
+                            <Nav.Link
+                                as={Link}
+                                to="/login"
+                                onClick={() => updateExpanded(false)}
+                            >
+                                <AiOutlineUser style={{ marginBottom: "2px" }} /> Login
+                            </Nav.Link>
+                        </Nav.Item>
+
 
 
 

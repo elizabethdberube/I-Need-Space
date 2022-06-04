@@ -1,0 +1,8 @@
+Model Information:
+* title:	Solar System
+* source:	https://sketchfab.com/3d-models/solar-system-600b747a80934238b7183b6c70b991e4
+* author:	Anthony Yanez (https://sketchfab.com/paulyanez)
+
+Model License:
+* license type:	SKETCHFAB Editorial (https://sketchfab.com/licenses)
+* requirements:	Use only in connection with events that are newsworthy or of public interest
