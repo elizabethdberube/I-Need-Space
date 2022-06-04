@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import './PictureStyle.css';
+
+
+
+
+
 
 // rover page
 function Picture() {
@@ -41,7 +47,7 @@ function Picture() {
   } else {
     return (
       <>
-        <div><h1 className="mx-auto d-flex justify-content-center">Astronomy Picture of the Day!</h1>
+        <div className="wrapper"> <h1 className="mx-auto d-flex justify-content-center">Astronomy Picture of the Day!</h1>
           <h5 class="text-center font-weight-bold">Date: {picture.date}</h5></div>
 
         <div className="text-center"><img src={picture.url} alt="pic of the day" height="500" width="500" />
@@ -58,4 +64,11 @@ function Picture() {
   }
 };
 
+
+
+
+
 export default Picture;
+
+
+

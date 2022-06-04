@@ -70,7 +70,7 @@ function NavBar() {
                         <Nav.Item>
                             <Nav.Link
                                 as={Link}
-                                to="/Picture of the day"
+                                to="/picture"
                                 onClick={() => updateExpanded(false)}
                             >
                                 <AiOutlineFundProjectionScreen
@@ -87,6 +87,16 @@ function NavBar() {
                                 onClick={() => updateExpanded(false)}
                             >
                                 <CgFileDocument style={{ marginBottom: "2px" }} /> Observatory
+                            </Nav.Link>
+                        </Nav.Item>
+
+                        <Nav.Item>
+                            <Nav.Link
+                                as={Link}
+                                to="/login"
+                                onClick={() => updateExpanded(false)}
+                            >
+                                <AiOutlineUser style={{ marginBottom: "2px" }} /> Login
                             </Nav.Link>
                         </Nav.Item>
 
