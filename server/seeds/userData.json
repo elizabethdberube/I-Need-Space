@@ -5,8 +5,48 @@
         "password": "password"
     },
     {
-        "username": "testuser",
-        "email": "test@gmail.com",
+        "username": "spaceman",
+        "email": "spaceman@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "jeff2010",
+        "email": "jeff2010@yahoo.com",
+        "password": "password"
+    },
+    {
+        "username": "sue_plus_3kids",
+        "email": "sue_plus_3kids@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "captain_kirk",
+        "email": "captain_kirk@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "co-pilot",
+        "email": "co-pilot@yahoo.com",
+        "password": "password"
+    },
+    {
+        "username": "jean-luc-picard ",
+        "email": "picard@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "joejoe12",
+        "email": "joejoe12@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "theDoctor",
+        "email": "theDoctor@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "Mando",
+        "email": "Mando@gmail.com",
         "password": "password"
     }
 ]
