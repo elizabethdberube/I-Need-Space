@@ -25,7 +25,6 @@ const resolvers = {
         },
 
         myComments: async (parent, args, context) => {
-            // context.user = await User.findOne({ email: "theDoctor@gmail.com" });
             if (context.user) {
                 return User.findOne({ _id: context.user._id });
             }
@@ -36,7 +35,9 @@ const resolvers = {
         getFHAZ: async () => {
 
             let result = await roverFHAZ()
+
             result = result.data;
+
 
             return { name: result.photos[0].rover.name, status: result.photos[0].rover.status, img_src: result.photos[0].img_src, landing_date: result.photos[0].rover.landing_date, launch_date: result.photos[0].rover.launch_date };
         },
@@ -83,7 +84,7 @@ const resolvers = {
             // check email
 
             const user = await User.findOne({ email });
-
+            console.log(user)
             if (!user) {
                 throw new AuthenticationError('Username or password is incorrect');
             }
@@ -99,7 +100,7 @@ const resolvers = {
 
         addComment: async (parent, { commentText }, context) => {
             // the next line is for testing purposes if you are not testing then leave commented out  
-            //   context.user = await User.findOne({ email: "theDoctor@gmail.com" });
+            //  context.user = await User.findOne({ email: "admin@ineedspace.com" });
             if (context.user) {
                 const comment = await Comment.create({
                     commentText,
@@ -117,7 +118,7 @@ const resolvers = {
 
         updateComment: async (parent, { _id, commentText }, context) => {
             // the next line is for testing purposes if you are not testing then leave commented out  
-            //   context.user = await User.findOne({ email: "theDoctor@gmail.com" });
+            // context.user = await User.findOne({ email: "admin@ineedspace.com" });
             if (context.user) {
                 return await Comment.findOneAndUpdate({ _id, commentAuthor: context.user.username },
                     { $set: { commentText } });
@@ -128,9 +129,9 @@ const resolvers = {
 
         removeComment: async (parent, { commentId }, context) => {
             // the next line is for testing purposes if you are not testing then leave commented out unless 
-            //  context.user = await User.findOne({ email: "theDoctor@gmail.com" })
+            //  context.user = await User.findOne({ email: "admin@ineedspace.com" })
             if (context.user) {
-
+                console.log(commentId)
                 const comment = await Comment.findOneAndDelete({
                     _id: commentId,
                     commentAuthor: context.user.username,
