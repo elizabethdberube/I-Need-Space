@@ -70,16 +70,24 @@ function NavBar() {
                         <Nav.Item>
                             <Nav.Link
                                 as={Link}
-                                to="/picture"
+                                to="/Picture"
                                 onClick={() => updateExpanded(false)}
                             >
                                 <AiOutlineFundProjectionScreen
                                     style={{ marginBottom: "2px" }}
                                 />{" "}
-                                Picture of the day
+                                Picture
                             </Nav.Link>
                         </Nav.Item>
-
+                        <Nav.Item>
+                            <Nav.Link
+                                as={Link}
+                                to="/Camera"
+                                onClick={() => updateExpanded(false)}
+                            >
+                                <CgFileDocument style={{ marginBottom: "2px" }} /> Camera
+                            </Nav.Link>
+                        </Nav.Item>
                         <Nav.Item>
                             <Nav.Link
                                 as={Link}
@@ -93,7 +101,7 @@ function NavBar() {
                         <Nav.Item>
                             <Nav.Link
                                 as={Link}
-                                to="/login"
+                                to="/Login"
                                 onClick={() => updateExpanded(false)}
                             >
                                 <AiOutlineUser style={{ marginBottom: "2px" }} /> Login

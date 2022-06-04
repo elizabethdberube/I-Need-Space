@@ -32,6 +32,9 @@
     "react-tsparticles": "^1.42.2",
     "react-tweet-embed": "1.2.2",
     "styled-components": "^5.2.0",
+    "react-webcam": "^7.0.1",
+    "use-react-screenshot": "^3.0.0",
+    "webcam": "^3.2.1",
     "three": "^0.140.2",
     "typewriter-effect": "^2.18.2",
     "web-vitals": "^2.1.4"
