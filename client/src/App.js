@@ -56,7 +56,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Rover" element={<Rover />} />
             <Route path="/Picture" element={<Picture />} />
-            <Route path="/Scene" element={<Scene />} />
+
             <Route path="/Login" element={<Login />} />
 
 
