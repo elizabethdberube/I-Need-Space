@@ -6,6 +6,7 @@ import curiosity from '../images/curiosity.png';
 import spiritOpportunity from '../images/spiritOpportunity.png';
 import perseverance from '../images/perseverance.png';
 import sojourner from '../images/sojourner.png';
+import "./PictureStyle.css";
 
 
 
@@ -78,7 +79,7 @@ function Camera() {
 
 
     return (
-        <div >
+        <div className="wrapper" >
 
             <h5 className="card-title">Would you like to see yourself with a Mar's Rover?</h5>
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from "@apollo/client"
 import { FHAZ_Data, RHAZ_Data, NAVCAM_Data, twitter_Data } from "../utils/queries"
 import roverPic from '../images/rover.jpg'
+import "./PictureStyle.css"
 
 import { isConstValueNode } from 'graphql';
 
@@ -50,7 +51,7 @@ export default function RoverPage() {
         return <div>Loading...</div>;
     } return (
         <>
-            <div>
+            <div className="wrapper">
 
 
                 <img src={rover}></img>
