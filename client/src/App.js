@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from "./components/home/Home";
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
@@ -27,7 +28,10 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -62,6 +66,7 @@ function App() {
 
       </div>
     </Router>
+    </ApolloProvider >
   );
 }
 
