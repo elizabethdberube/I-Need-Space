@@ -56,7 +56,7 @@ function App() {
             <Route path="/Camera" element={<Camera />} />
             <Route path="/Picture" element={<Picture />} />
 
-
+            <Route path="/Login" element={<Login />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
 
