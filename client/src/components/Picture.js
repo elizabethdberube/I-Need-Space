@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { useQuery } from "@apollo/client"
+import { QUERY_COMMENTS, QUERY_MYCOMMENTS, QUERY_SINGLE_COMMENT, spacePic_Data } from "../utils/queries"
 import './PictureStyle.css';
 
 
