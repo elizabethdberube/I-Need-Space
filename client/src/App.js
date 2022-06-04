@@ -1,14 +1,14 @@
 import React, { useState, useEffect, Component } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from "./components/home/Home";
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
 
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Picture from "./components/Picture";
 import Rover from "./components/Rover";
-// import Observatory from "./components/Observatory";
+
 
 
 import "./style.css";
@@ -45,27 +45,29 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar />
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Rover" element={<Rover />} />
-          <Route path="/Picture" element={<Picture />} />
+    <ApolloProvider client={client}>
 
-          <Route path="/Login" element={<Login />} />
+      <Router>
+        <Preloader load={load} />
+        <div className="App" id={load ? "no-scroll" : "scroll"}>
+          <Navbar />
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Rover" element={<Rover />} />
+            <Route path="/Picture" element={<Picture />} />
+            <Route path="/Scene" element={<Scene />} />
+            <Route path="/Login" element={<Login />} />
 
 
 
 
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
 
-      </div>
-    </Router>
+        </div>
+      </Router>
     </ApolloProvider >
   );
 }
