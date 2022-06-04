@@ -79,7 +79,15 @@ function NavBar() {
                                 Picture of the day
                             </Nav.Link>
                         </Nav.Item>
-
+                        <Nav.Item>
+                            <Nav.Link
+                                as={Link}
+                                to="/Camera"
+                                onClick={() => updateExpanded(false)}
+                            >
+                                <CgFileDocument style={{ marginBottom: "2px" }} /> Camera
+                            </Nav.Link>
+                        </Nav.Item>
                         <Nav.Item>
                             <Nav.Link
                                 as={Link}
