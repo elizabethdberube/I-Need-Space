@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from "@apollo/client"
 import { FHAZ_Data, RHAZ_Data, NAVCAM_Data, twitter_Data } from "../utils/queries"
-import roverPic from './images/rover.jpg';
+import roverPic from '../images/rover.jpg';
 import { isConstValueNode } from 'graphql';
 
 

@@ -56,9 +56,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Rover" element={<Rover />} />
             <Route path="/Camera" element={<Camera />} />
-
-
-
+            <Route path="/Picture" element={<Picture />} />
 
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

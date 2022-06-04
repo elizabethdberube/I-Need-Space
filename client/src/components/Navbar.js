@@ -70,13 +70,13 @@ function NavBar() {
                         <Nav.Item>
                             <Nav.Link
                                 as={Link}
-                                to="/Picture of the day"
+                                to="/Picture"
                                 onClick={() => updateExpanded(false)}
                             >
                                 <AiOutlineFundProjectionScreen
                                     style={{ marginBottom: "2px" }}
                                 />{" "}
-                                Picture of the day
+                                Picture
                             </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
