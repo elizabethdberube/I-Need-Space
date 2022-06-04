@@ -1,9 +1,10 @@
 import React from "react";
+import "./PictureStyle.css"
 
 function Login() {
   return (
     <>
-      <div><h1 className=" mx-auto d-flex justify-content-center">Let's Space Out!</h1></div>
+      <div className="wrapper"><h1 className=" mx-auto d-flex justify-content-center">Let's Space Out!</h1></div>
       <div className="row d-flex pt-4">
         <div className="col-md-3 mx-auto">
 
