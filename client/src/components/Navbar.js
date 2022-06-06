@@ -91,7 +91,7 @@ function NavBar() {
                         <Nav.Item>
                             <Nav.Link
                                 as={Link}
-                                to="/Observatory"
+                                to="/SceneViewer"
                                 onClick={() => updateExpanded(false)}
                             >
                                 <CgFileDocument style={{ marginBottom: "2px" }} /> Observatory

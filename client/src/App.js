@@ -1,7 +1,11 @@
 import React, { useState, useEffect, Component } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import Home from "./components/home/Home";
+
+import SceneViewer from "./components/SceneViewer";
+
 import { setContext } from '@apollo/client/link/context';
+
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
@@ -71,7 +75,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Rover" element={<Rover />} />
-
+            <Route path="/SceneViewer" element={<SceneViewer />} />
             <Route path="/Camera" element={<Camera />} />
             <Route path="/Picture" element={<Picture />} />
 
