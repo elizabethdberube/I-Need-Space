@@ -3,7 +3,7 @@ import decode from 'jwt-decode';
 class AuthService {
 
     getUserProfile() {
-        return deconde(this.getToken());
+        return decode(this.getToken());
     }
 
     //check to see if token is expired 
@@ -33,12 +33,13 @@ class AuthService {
     // set token in local storage
     login(idToken) {
         localStorage.setItem('id_token', idToken);
-        window.location.assign('/');
+        // window.location.assign('/');
     }
 
     // remove token in local storage
     logout() {
         localStorage.removeItem('id_token');
+        localStorage.removeItem('username');
         window.location.reload();
     }
 
