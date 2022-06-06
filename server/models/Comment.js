@@ -14,11 +14,6 @@ const commentSchema = new Schema({
         maxlength: 280,
         trim: true,
     },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-    },
 });
 
 const Comment = model('Comment', commentSchema);

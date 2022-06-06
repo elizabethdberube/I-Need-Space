@@ -26,22 +26,27 @@ export default function RoverPage() {
 
     const NAVCAM = data_NAVCAM?.getNAVCAM || {};
 
-
+    //load rover pic
     useEffect(() => {
         setRover(roverPic);
     }, []);
 
+    //change rover pic
     const setRHAZ = () => {
 
         setRover(RHAZ.img_src);
 
     };
 
+
+    //change rover pic
     const setFHAZ = () => {
         setRover(FHAZ.img_src);
 
     };
 
+
+    //change rover pic
     const setNAVCAM = () => {
         setRover(NAVCAM.img_src);
 
@@ -70,7 +75,12 @@ export default function RoverPage() {
                         {twitter.map((item, i) => (
 
                             <li className="list-group-item" key={i}>
-                                {item.name}  {item.date}{item.url}   {item.location}    {item.description}  {item.screen_name}  {item.source}
+                                <p> Date: {item.created_at} </p>
+                                <p> Name: {item.name} </p>
+                                <p> {item.text} </p>
+                                <p> Rover's Location: {item.location} </p>
+                                <p>{item.description}  {item.screen_name} </p>
+                                <a href={item.url} target="_blank" rel="noreferrer" className="links">Link to Curiosity's page </a>
                             </li>
 
                         ))}
