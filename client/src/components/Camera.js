@@ -92,15 +92,18 @@ function Camera() {
                 width={750}
                 videoConstraints={videoConstraints}
             />
-            <button onClick={capture}>Capture photo</button>
+            <button className='bn1' onClick={capture}>Capture photo</button>
 
             <h5 className="card-title">Pick which Rover you would like to take a picture with:</h5>
 
 
-            <button alt="curiosity" style={{ margin: '20px' }} className={'nav-link active'} onClick={setCuriosity} >Curiosity </button><button alt="sojourner" style={{ margin: '20px' }} className={'nav-link active'} onClick={setSojourner}  >Sojourner </button>
-            <button alt="perseverance" style={{ margin: '20px' }} className={'nav-link active'} onClick={setPerseverance}>Perseverance </button> <button alt="spiritOpportunity" className={'nav-link active'} onClick={setSpiritOpportunity}>Spirit and Opportunity </button>
+            <button ClassName='bn2' alt="curiosity" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setCuriosity} >Curiosity </button>
+            <button ClassName='bn3' alt="sojourner" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setSojourner}  >Sojourner </button>
+            <button ClassName='bn4' alt="perseverance" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setPerseverance}>Perseverance </button>
+            <button ClassName='bn5' alt="spiritOpportunity" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setSpiritOpportunity}>Spirit and Opportunity </button>
             <div style={{ padding: "10px" }}>
-                <button onClick={getImage}>
+
+                <button ClassName='bn6' style={{ margin: '20px', backgroundColor: "	#8585ad", borderRadius: '25px' }} onClick={getImage}>
                     Download
                 </button>
             </div>
