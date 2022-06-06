@@ -10,7 +10,6 @@ query user($username: String!) {
             _id
             commentText
             commentAuthor
-            createdAt
 
         }
     }
@@ -19,22 +18,20 @@ query user($username: String!) {
 
 export const QUERY_COMMENTS = gql`
 query getComments {
-    comments{
+    getComments {
         _id
         commentText
         commentAuthor
-        createdAt
     }
 }
 `;
 
 export const QUERY_SINGLE_COMMENT = gql`
 query getSingleComment($commentId: ID!) {
-    comments(commentId: $commentId) {
+    getSingleComment(commentId: $commentId) {
         _id 
         commentText
         commentAuthor
-        createdAt
     }
 }
 `;
@@ -49,7 +46,6 @@ query myComments {
             _id
             commmentText
             commentAuthor
-            createdAt
     
         }
     }

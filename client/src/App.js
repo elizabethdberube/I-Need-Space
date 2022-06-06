@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import Home from "./components/home/Home";
-
+import { setContext } from '@apollo/client/link/context';
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
@@ -28,13 +28,29 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const client = new ApolloClient({
-  uri: '/graphql',
-  cache: new InMemoryCache(),
-});
 
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
 function App() {
   const [load, upadateLoad] = useState(true);
+  const authLink = setContext((_, { headers }) => {
+
+    const token = localStorage.getItem('id_token');
+
+    return {
+      headers: {
+        ...headers,
+        authorization: token ? `Bearer ${token}` : '',
+      },
+    };
+  });
+
+  const client = new ApolloClient({
+
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache(),
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {

@@ -12,10 +12,9 @@ type User {
   }
 
 type Comment {
-    _id: ID
+    _id: ID!
     commentAuthor: String
     commentText: String!
-    createdAt: String
    
 }
 
@@ -74,7 +73,7 @@ type Auth {
   type Query {
     users: [User]
     user(username: String!): User
-    comments(username: String): [Comment]
+    getComments: [Comment]
     comment(commentId: ID!): Comment
     getFHAZ: FHAZ
     getRHAZ: RHAZ
@@ -88,8 +87,8 @@ type Auth {
     addUser( username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addComment( commentText: String!): Comment
-    updateComment(_id: ID, commentText: String!): Comment
-    removeComment( commentId: ID, commentAuthor: String): Comment
+    updateComment(commentId: ID, commentText: String!): Comment
+    removeComment( commentId: ID!): Comment
    
   }
 `;

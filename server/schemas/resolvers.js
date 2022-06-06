@@ -16,9 +16,9 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findOne({ username }).populate('comments');
         },
-        comments: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Comment.find(params).sort({ createdAt: -1 });
+        getComments: async (parent) => {
+
+            return Comment.find({}).sort({ createdAt: -1 });
         },
         comment: async (parent, { commentId }) => {
             return Comment.findOne({ _id: commentId });
@@ -102,9 +102,13 @@ const resolvers = {
             // the next line is for testing purposes if you are not testing then leave commented out  
             //  context.user = await User.findOne({ email: "admin@ineedspace.com" });
             if (context.user) {
+                let user = await User.findOne({ _id: context.user._id });
+
                 const comment = await Comment.create({
+
                     commentText,
-                    commentAuthor: context.user.username,
+                    commentAuthor: user.username
+
                 });
 
                 await User.findOneAndUpdate(
@@ -116,11 +120,15 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
-        updateComment: async (parent, { _id, commentText }, context) => {
+        updateComment: async (parent, { commentId, commentText }, context) => {
             // the next line is for testing purposes if you are not testing then leave commented out  
             // context.user = await User.findOne({ email: "admin@ineedspace.com" });
+
             if (context.user) {
-                return await Comment.findOneAndUpdate({ _id, commentAuthor: context.user.username },
+
+                let user = await User.findOne({ _id: context.user._id });
+
+                return await Comment.findOneAndUpdate({ _id: commentId, commentAuthor: user.username },
                     { $set: { commentText } });
             }
             throw new AuthenticationError('Not logged in');
@@ -129,12 +137,13 @@ const resolvers = {
 
         removeComment: async (parent, { commentId }, context) => {
             // the next line is for testing purposes if you are not testing then leave commented out unless 
-            //  context.user = await User.findOne({ email: "admin@ineedspace.com" })
+            // context.user = await User.findOne({ email: "spaceman@gmail.com" })
             if (context.user) {
-                console.log(commentId)
+
+                let user = await User.findOne({ _id: context.user._id });
                 const comment = await Comment.findOneAndDelete({
                     _id: commentId,
-                    commentAuthor: context.user.username,
+                    commentAuthor: user.username,
                 });
                 await User.findOneAndUpdate(
                     { _id: context.user._id },
