@@ -96,8 +96,10 @@ function Camera() {
             <h5 className="card-title">Pick which Rover you would like to take a picture with:</h5>
 
 
-            <button alt="curiosity" style={{ margin: '20px' }} className={'nav-link active'} onClick={setCuriosity} >Curiosity </button><button alt="sojourner" style={{ margin: '20px' }} className={'nav-link active'} onClick={setSojourner}  >Sojourner </button>
-            <button alt="perseverance" style={{ margin: '20px' }} className={'nav-link active'} onClick={setPerseverance}>Perseverance </button> <button alt="spiritOpportunity" className={'nav-link active'} onClick={setSpiritOpportunity}>Spirit and Opportunity </button>
+            <button id='bn1' alt="curiosity" style={{ margin: '20px' }} className={'nav-link active'} onClick={setCuriosity} >Curiosity </button>
+            <button alt="sojourner" style={{ margin: '20px' }} className={'nav-link active'} onClick={setSojourner}  >Sojourner </button>
+            <button alt="perseverance" style={{ margin: '20px' }} className={'nav-link active'} onClick={setPerseverance}>Perseverance </button>
+            <button alt="spiritOpportunity" className={'nav-link active'} onClick={setSpiritOpportunity}>Spirit and Opportunity </button>
             <div style={{ padding: "10px" }}>
                 <button onClick={getImage}>
                     Download
