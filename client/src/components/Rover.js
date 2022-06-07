@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from "@apollo/client"
 import { FHAZ_Data, RHAZ_Data, NAVCAM_Data, twitter_Data } from "../utils/queries"
 import roverPic from '../images/rover.jpg';
-import { isConstValueNode } from 'graphql';
+// import { isConstValueNode } from 'graphql';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import "./PictureStyle.css";
-import Carousel from 'react-bootstrap/Carousel'
+
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 export default function RoverPage() {
@@ -97,4 +97,7 @@ export default function RoverPage() {
 
     </>
   );
-}
+};
+
+
+
