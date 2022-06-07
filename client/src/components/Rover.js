@@ -57,61 +57,21 @@ export default function RoverPage() {
 
       <div wrapper>
 
-        <div className="practice">
-          <Carousel>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={rover}
-                alt="Rover"
-              />
-              <Carousel.Caption>
-                <h3>Explore with Curiosity</h3>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={setFHAZ}
-                alt="Second slide"
-              />
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={rover} />
+          <Card.Body>
+            <Card.Title>Card Title</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the bulk of
+              the card's content.
+            </Card.Text>
+            <Button onClick={setFHAZ}>Front Hazard Avoidance Camera</Button>
+            <Button onClick={setRHAZ}>Front Hazard Avoidance Camera</Button>
+            <Button onClick={setNAVCAM}>Front Hazard Avoidance Camera</Button>
+          </Card.Body>
+        </Card>
 
-              <Carousel.Caption>
-                <h3>Front Hazard Avoidance Camera</h3>
-                <p>{FHAZ.status}</p>
-                <p>{FHAZ.launch_date}</p>
-                <p>{FHAZ.landing_date}</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={setRHAZ}
-                alt="Third slide"
-              />
 
-              <Carousel.Caption>
-                <h3>Rear Hazard Avoidance Camera</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={setNAVCAM}
-                alt="Third slide"
-              />
-
-              <Carousel.Caption>
-                <h3>Navigation Camera</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-
-          </Carousel>
-
-        </div>
 
         <div className="centerContent">
           <div className="selfCenter spaceBetween">
