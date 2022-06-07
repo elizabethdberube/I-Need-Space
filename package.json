@@ -26,6 +26,7 @@
     "npm-check-updates": "^13.1.1",
     "react-webcam": "^7.0.1",
     "upgrade": "^1.1.0",
-    "use-react-screenshot": "^3.0.0"
+    "use-react-screenshot": "^3.0.0",
+    "react": "^18.1.0"
   }
 }
