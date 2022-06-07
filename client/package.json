@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "html2canvas": "^1.4.1",
     "@apollo/client": "^3.6.6",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -61,8 +62,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "dependencies": {
-    "html2canvas": "^1.4.1"
   }
 }
