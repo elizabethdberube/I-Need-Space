@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from "@apollo/client"
 import { FHAZ_Data, RHAZ_Data, NAVCAM_Data, twitter_Data } from "../utils/queries"
-import roverPic from '../images/rover.jpg'
-import "./PictureStyle.css"
-
-import { isConstValueNode } from 'graphql';
-import "./PictureStyle.css";
+import roverPic from '../images/rover.jpg';
+// import { isConstValueNode } from 'graphql';
 import Card from 'react-bootstrap/Card';
-import Carousel from 'react-bootstrap/Carousel'
+import Button from 'react-bootstrap/Button';
+import "./PictureStyle.css";
+
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 export default function RoverPage() {
 
@@ -29,27 +29,22 @@ export default function RoverPage() {
 
   const NAVCAM = data_NAVCAM?.getNAVCAM || {};
 
-  //load rover pic
+
   useEffect(() => {
     setRover(roverPic);
   }, []);
 
-  //change rover pic
   const setRHAZ = () => {
 
     setRover(RHAZ.img_src);
 
   };
 
-
-  //change rover pic
   const setFHAZ = () => {
     setRover(FHAZ.img_src);
 
   };
 
-
-  //change rover pic
   const setNAVCAM = () => {
     setRover(NAVCAM.img_src);
 
@@ -59,91 +54,46 @@ export default function RoverPage() {
     return <div>Loading...</div>;
   } return (
     <>
-      <div className="wrapper">
 
-        <div className="curiosity">
-          <Carousel>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={rover}
-                alt="Rover"
-              />
-              <Carousel.Caption>
-                <h3>Explore with Curiosity</h3>
-              </Carousel.Caption>
-            </Carousel.Item>
+      <div wrapper>
 
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={setFHAZ}
-                alt="Front Hazard Avoidance Camera"
-              />
-              <Carousel.Caption>
-                <h3>Front Hazard Avoidance Camera</h3>
-                <p>Status: {FHAZ.status}</p>
-                <p>Launch Date: {FHAZ.launch_date}</p>
-                <p>Landing Date:{FHAZ.landing_date}</p>
-              </Carousel.Caption>
-            </Carousel.Item>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={rover} />
+          <Card.Body>
+            <Card.Title>Card Title</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the bulk of
+              the card's content.
+            </Card.Text>
+            <Button onClick={setFHAZ}>Front Hazard Avoidance Camera</Button>
+            <Button onClick={setRHAZ}>Front Hazard Avoidance Camera</Button>
+            <Button onClick={setNAVCAM}>Front Hazard Avoidance Camera</Button>
+          </Card.Body>
+        </Card>
 
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={setRHAZ}
-                alt="Rear Hazard Avoidance Camera"
-              />
-              <Carousel.Caption>
-                <h3>Rear Hazard Avoidance Camera</h3>
-                <p>Status: {RHAZ.status}</p>
-                <p>Launch Date: {RHAZ.launch_date}</p>
-                <p>Landing Date: {RHAZ.landing_date}</p>
-              </Carousel.Caption>
-            </Carousel.Item>
 
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={setNAVCAM}
-                alt="Navigation Camera"
-              />
-              <Carousel.Caption>
-                <h3>Navigation Camera</h3>
-                <p>Status: {NAVCAM.status}</p>
-                <p>Launch Date: {NAVCAM.launch_date}</p>
-                <p>Landing Date: {NAVCAM.landing_date}</p>
-              </Carousel.Caption>
-            </Carousel.Item>
 
-          </Carousel>
-
+        <div className="centerContent">
+          <div className="selfCenter spaceBetween">
+            <TwitterTimelineEmbed
+              onLoad={function noRefCheck() { }}
+              options={{
+                height: 400
+              }}
+              sourceType="widget"
+              widgetId="15473958"
+            />
+          </div>
         </div>
 
         <div className="twitterFeed">
-          <Card style={{ width: '25rem', height: '15rem' }}>
-            <div class="space_feed card-header text-dark"><h1>@marscuriosity</h1></div>
-            <div class="card-body scroll">
-              <ul class="list-group list-group-flush">
-                {twitter.map((item, i) => (
-
-                  <li className="list-group-item" key={i}>
-                    <p> Date: {item.created_at} </p>
-                    <p> Name: {item.name} </p>
-                    <p> {item.text} </p>
-                    <p> Rover's Location: {item.location} </p>
-                    <p>{item.description}  {item.screen_name} </p>
-                    <a href={item.url} target="_blank" rel="noreferrer" className="links">Link to Curiosity's page </a>
-                  </li>
-                ))}
-              </ul>
-
-
-            </div>
-          </Card >
+          <div class="space_feed card-header text-dark">
+            <div class="space_feed card-header text-dark scroll"></div>
+            <a class="twitter-timeline" data-width="220" data-height="200" href="https://twitter.com/MarsCuriosity?ref_src=twsrc%5Etfw">Tweets by MarsCuriosity</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
         </div>
-
       </div>
+
     </>
   );
 };
