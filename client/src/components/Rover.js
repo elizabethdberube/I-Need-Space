@@ -56,34 +56,35 @@ export default function RoverPage() {
     <>
 
       <div wrapper>
+        <div className="rover">
+          <Card className="picture">
+            <Card.Img variant="top" src={rover} />
+            <Card.Body>
+              <Card.Title>Curiosity</Card.Title>
+              <Card.Text>
+                Click the different buttons to see Curiosity's different camera angles
+              </Card.Text>
+              <div className="btn">
+                <Button onClick={setFHAZ} width="400" height="200">Front Hazard Avoidance Camera</Button>
+                <Button onClick={setRHAZ} id="roverpix">Rear Hazard Avoidance Camera</Button>
+                <Button onClick={setNAVCAM} id="roverpix">Navigation Camera</Button>
+              </div>
+            </Card.Body>
+          </Card>
 
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={rover} />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the card's content.
-            </Card.Text>
-            <Button onClick={setFHAZ}>Front Hazard Avoidance Camera</Button>
-            <Button onClick={setRHAZ}>Front Hazard Avoidance Camera</Button>
-            <Button onClick={setNAVCAM}>Front Hazard Avoidance Camera</Button>
-          </Card.Body>
-        </Card>
-
-
-
-        <div className="centerContent">
-          <div className="selfCenter spaceBetween">
-            <TwitterTimelineEmbed
-              onLoad={function noRefCheck() { }}
-              options={{
-                height: 400
-              }}
-              sourceType="widget"
-              widgetId="15473958"
-            />
+          <div className="centerContent">
+            <div className="selfCenter spaceBetween">
+              <TwitterTimelineEmbed
+                onLoad={function noRefCheck() { }}
+                options={{
+                  height: 400
+                }}
+                sourceType="widget"
+                widgetId="15473958"
+              />
+            </div>
           </div>
+
         </div>
 
         <div className="twitterFeed">

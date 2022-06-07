@@ -122,7 +122,7 @@ function Picture() {
       </div>
       <div className="wrapper">
 
-        <div className="list-group">
+        <div className="comment">
           <ul className="list-group">
             {comments.map((item, i) => (
 
