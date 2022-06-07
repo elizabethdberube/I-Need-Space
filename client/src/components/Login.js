@@ -33,7 +33,7 @@ function Login() {
       const { data } = await login({
         variables: { ...formState },
       });
-
+      console.log(data);
       Auth.login(data.login.token);
 
       localStorage.setItem('username', data.login.user.username);
@@ -50,25 +50,25 @@ function Login() {
 
   //Signup
   const getChange = (event) => {
-    const { username, value } = event.target;
+    const { name, value } = event.target;
 
     setForm({
       ...form,
-      [username]: value,
+      [name]: value,
     });
   };
 
   const getFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(form);
 
     try {
-      const { dataUser } = await addUser({
+      const { data } = await addUser({
         variables: { ...form },
       });
-
-      Auth.login(dataUser.addUser.token);
-      localStorage.setItem('username', dataUser.addUser.login.user.username);
+      console.log(data)
+      Auth.login(data.addUser.token);
+      localStorage.setItem('username', data.addUser.user.username);
     } catch (e) {
       console.error(e);
     }
