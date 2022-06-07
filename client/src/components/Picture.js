@@ -126,7 +126,7 @@ function Picture() {
           <ul className="list-group">
             {comments.map((item, i) => (
 
-              <li className="list-group-item" key={item._id} value={item.commentAuthor}>
+              <li className="list-group-item" id="comments" key={item._id} value={item.commentAuthor}>
                 {item.commentAuthor}:  {item.commentText}
 
                 <button className="btn btn-info btn-block py-1" style={{ display: (username === item.commentAuthor ? "inline-block" : "none") }} onClick={(event) => handleUpdate(item)}  >Update</button> <button className="btn btn-info btn-block py-1" style={{ display: (username === item.commentAuthor ? "inline-block" : "none") }} onClick={(event) => remove(item._id)}>Remove</button>
@@ -163,10 +163,10 @@ function Picture() {
             <>
 
               <form
-                className="flex-row justify-center justify-space-between-md align-center"
+                className="comment-box"
                 onSubmit={handleFormSubmit}
               >
-                <div className="col-12 col-lg-9">
+                <div className="commentfield">
                   <input
                     placeholder="Add your comment..."
                     value={newComment}
