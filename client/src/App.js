@@ -3,24 +3,16 @@ import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@ap
 import Home from "./components/home/Home";
 
 
-
 import { setContext } from '@apollo/client/link/context';
-
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Picture from "./components/Picture";
 import Camera from "./components/Camera";
 import Rover from "./components/Rover";
-
-
-
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import ReactDOM from 'react-dom';
-// ReactDOM.render(<App />, document.getElementById('root'));
-
 import {
   BrowserRouter as Router,
   Route,
@@ -32,10 +24,12 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
+// needed for GraphQL
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
+
+// needed for JWT Auth
 function App() {
   const [load, upadateLoad] = useState(true);
   const authLink = setContext((_, { headers }) => {
@@ -50,6 +44,7 @@ function App() {
     };
   });
 
+  // needed for ApolloClient
   const client = new ApolloClient({
 
     link: authLink.concat(httpLink),

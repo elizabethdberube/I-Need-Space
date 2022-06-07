@@ -28,12 +28,12 @@ function Login() {
   // login
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // console.log(formState);
+
     try {
       const { data } = await login({
         variables: { ...formState },
       });
-      console.log(data);
+
       Auth.login(data.login.token);
 
       localStorage.setItem('username', data.login.user.username);
@@ -60,13 +60,13 @@ function Login() {
 
   const getFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(form);
+
 
     try {
       const { data } = await addUser({
         variables: { ...form },
       });
-      console.log(data)
+
       Auth.login(data.addUser.token);
       localStorage.setItem('username', data.addUser.user.username);
     } catch (e) {

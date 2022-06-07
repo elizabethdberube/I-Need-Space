@@ -11,7 +11,7 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 export default function RoverPage() {
 
-
+  // All the queries
   const { loading: loading_FHAZ, data: data_FHAZ } = useQuery(FHAZ_Data);
   const { loading: loading_RHAZ, data: data_RHAZ } = useQuery(RHAZ_Data);
   const { loading: loading_NAVCAM, data: data_NAVCAM } = useQuery(NAVCAM_Data);
@@ -29,22 +29,25 @@ export default function RoverPage() {
 
   const NAVCAM = data_NAVCAM?.getNAVCAM || {};
 
-
+  // sets rover picture on page load
   useEffect(() => {
     setRover(roverPic);
   }, []);
 
+  // changes picture to RHAZ camera
   const setRHAZ = () => {
 
     setRover(RHAZ.img_src);
 
   };
 
+  // changes picture to FHAZ camera
   const setFHAZ = () => {
     setRover(FHAZ.img_src);
 
   };
 
+  // changes picture to NAVCAM camera
   const setNAVCAM = () => {
     setRover(NAVCAM.img_src);
 

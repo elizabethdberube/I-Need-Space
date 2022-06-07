@@ -24,7 +24,6 @@
     "express": "^4.18.1",
     "graphql": "^16.5.0",
     "npm-check-updates": "^13.1.1",
-    "react": "^18.1.0",
     "upgrade": "^1.1.0"
   }
 }

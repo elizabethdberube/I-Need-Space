@@ -4,12 +4,13 @@ const { User, Comment } = require('../models');
 const commentData = require('./commentData.json');
 const userData = require('./userData.json');
 
+// seeds User and Comment model
 db.once('open', async () => {
     try {
         await User.deleteMany({});
         await Comment.deleteMany({});
 
-        // await User.insertMany(userData);
+
 
         for (let i = 0; i < userData.length; i++) {
             const user = userData[i];

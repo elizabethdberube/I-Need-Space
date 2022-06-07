@@ -84,7 +84,7 @@ const resolvers = {
             // check email
 
             const user = await User.findOne({ email });
-            console.log(user)
+
             if (!user) {
                 throw new AuthenticationError('Username or password is incorrect');
             }
