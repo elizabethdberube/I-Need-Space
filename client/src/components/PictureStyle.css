@@ -243,6 +243,19 @@ h1,
     justify-content: center;
 }
 
+@media screen and (max-width: 480px) {
+    .buttonDiv {
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-right: 2%;
+        padding-left: 2%;
+
+    }
+}
+
+
 .captureButton {
     margin-top: 20px;
     margin-bottom: 20px;
