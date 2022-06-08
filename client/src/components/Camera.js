@@ -19,8 +19,8 @@ function Camera() {
     const storedPic = React.createRef(null);
     const width = 288;
     const videoConstraints = {
-        width: 750,
-        height: 405,
+        width: 450,
+        height: 243,
         facingMode: "user"
     };
 
@@ -79,35 +79,38 @@ function Camera() {
 
 
     return (
-        <div className="wrapper" >
+        <div className="wrapper theDiv" >
 
-            <h5 className="card-title">Would you like to see yourself with a Mar's Rover?</h5>
+            <h5 className="card-title words">Would you like to see yourself with a Mar's Rover?</h5>
 
 
             <Webcam
                 audio={false}
-                height={405}
+                height={243}
                 ref={webcamRef}
                 screenshotFormat="image/jpeg"
-                width={750}
+                width={450}
                 videoConstraints={videoConstraints}
             />
-            <button className='bn1' onClick={capture}>Capture photo</button>
+            <div className='captureButton'>
+                <button className='bn1' onClick={capture}>Capture photo</button>
+            </div>
 
             <h5 className="card-title">Pick which Rover you would like to take a picture with:</h5>
 
-
-            <button ClassName='bn2' alt="curiosity" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setCuriosity} >Curiosity </button>
-            <button ClassName='bn3' alt="sojourner" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setSojourner}  >Sojourner </button>
-            <button ClassName='bn4' alt="perseverance" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setPerseverance}>Perseverance </button>
-            <button ClassName='bn5' alt="spiritOpportunity" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setSpiritOpportunity}>Spirit and Opportunity </button>
+            <div className='buttonDiv'>
+                <button ClassName='bn2' alt="curiosity" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setCuriosity} >Curiosity </button>
+                <button ClassName='bn3' alt="sojourner" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setSojourner}  >Sojourner </button>
+                <button ClassName='bn4' alt="perseverance" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setPerseverance}>Perseverance </button>
+                <button ClassName='bn5' alt="spiritOpportunity" style={{ margin: '20px', backgroundColor: "	#111", borderRadius: '25px' }} className={'nav-link active'} onClick={setSpiritOpportunity}>Spirit and Opportunity </button>
+            </div>
             <div style={{ padding: "10px" }}>
 
                 <button ClassName='bn6' style={{ margin: '20px', backgroundColor: "	#8585ad", borderRadius: '25px' }} onClick={getImage}>
                     Download
                 </button>
             </div>
-            <div ref={ref} style={{ width: "750", height: "405" }}>
+            <div ref={ref} style={{ width: "450", height: "243" }}>
                 <img ref={storedPic} style={{ position: "absolute" }} ></img>
                 <img style={{ position: "relative" }} src={display} ></img>
             </div>

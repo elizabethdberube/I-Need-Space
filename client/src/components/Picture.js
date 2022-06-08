@@ -108,11 +108,11 @@ function Picture() {
   if (loading_PIC || loading_comments) {
     return <div>Loading...</div>;
   } return (
-    <>
+    <div className='bigDiv'>
       <div className="wrapper"> <h1 className="mx-auto d-flex justify-content-center">Astronomy Picture of the Day!</h1>
         <h5 className="text-center font-weight-bold">Date: {picture.date}</h5></div>
 
-      <div className="text-center"><img src={picture.url} alt="pic of the day" height="500" width="500" />
+      <div className="text-center"><img src={picture.url} alt="pic of the day" className='picOfday' />
         <h2 className="text-center"> {picture.title}</h2></div>
 
       <div className="explanation">
@@ -170,13 +170,13 @@ function Picture() {
                   <input
                     placeholder="Add your comment..."
                     value={newComment}
-                    className="form-input w-100"
+                    className="form-input w-100 addComment"
                     onChange={(event) => setComment(event.target.value)}
                   />
                 </div>
 
                 <div className="col-12 col-lg-3">
-                  <button className="btn btn-info btn-block py-3" type="submit">
+                  <button className="btn btn-info btn-block py-3 theButton" type="submit">
                     Add comment
                   </button>
                 </div>
@@ -184,7 +184,7 @@ function Picture() {
               </form>
             </>
           ) : (
-            <p>
+            <p style={{ color: "white" }}>
               You need to be logged in to share your thoughts. Please{' '}
               <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
             </p>
@@ -192,7 +192,7 @@ function Picture() {
         </div>
 
       </div>
-    </>
+    </div>
   );
 }
 

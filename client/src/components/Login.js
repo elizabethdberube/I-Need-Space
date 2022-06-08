@@ -80,7 +80,7 @@ function Login() {
         <button className="btn btn-info btn-block py-1" onClick={(event) => Auth.logout()}>Logout</button>
         <div className="col-md-3 mx-auto">
           {data ? (
-            <p>
+            <p style={{ color: "white" }}>
               Success! You may now head
               <Link to="/">back to the homepage.</Link>
             </p>
@@ -89,13 +89,13 @@ function Login() {
               <h2>Log In</h2>
 
               <div className="form-group">
-                <label>Email</label>
+                <label style={{ color: "white" }}>Email</label>
                 <input type="email" className="form-control" placeholder="Email" name="email" value={formState.email}
                   onChange={handleChange} />
               </div>
 
               <div className="form-group">
-                <label>Password</label>
+                <label style={{ color: "white" }}>Password</label>
                 <input type="password" className="form-control" placeholder="Password" name="password" value={formState.password}
                   onChange={handleChange} />
               </div>
@@ -112,7 +112,7 @@ function Login() {
         </div>
         <div className="col-md-3 mx-auto">
           {dataUser ? (
-            <p>
+            <p style={{ color: "white" }}>
               Success! You may now head{' '}
               <Link to="/">back to the homepage.</Link>
             </p>
@@ -121,19 +121,19 @@ function Login() {
               <h2>Sign Up</h2>
 
               <div className="form-group">
-                <label>Space Alias</label>
+                <label style={{ color: "white" }}>Space Alias</label>
                 <input type="username" name="username" className="form-control" placeholder="Name" value={form.name}
                   onChange={getChange} />
               </div>
 
               <div className="form-group">
-                <label>Email</label>
+                <label style={{ color: "white" }}>Email</label>
                 <input type="email" name="email" className="form-control" placeholder="Email" value={form.email}
                   onChange={getChange} />
               </div>
 
               <div className="form-group">
-                <label>Password</label>
+                <label style={{ color: "white" }}>Password</label>
                 <input type="password" name="password" className="form-control" placeholder="Password" value={form.password}
                   onChange={getChange} />
               </div>

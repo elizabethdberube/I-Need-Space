@@ -12,6 +12,9 @@ h1,
     font-weight: 1.5;
     line-height: 1.5;
     color: #f6f7f8;
+    margin-left: 5%;
+    margin-right: 5%;
+
 
 }
 
@@ -30,9 +33,29 @@ h1,
     top: 25%;
 }
 
+/*picture of the day page*/
+.picOfday {
+    height: 500px;
+    width: 500px;
+
+}
+
+.bigDiv {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+@media screen and (max-width: 912px) {
+
+    .picOfday {
+        height: 300px;
+        width: 300px;
+    }
+}
+
 /*rover page*/
 .rover {
-    margin-top: 5%;
+    margin-top: 10%;
     justify-content: center;
     display: flex;
 }
@@ -56,7 +79,30 @@ h1,
     margin-bottom: 5px;
 }
 
+@media screen and (max-width: 480px) {
+    .rover {
+        margin-top: 20%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-right: 2%;
+        padding-left: 2%;
 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .rover .btn {
+        justify-content: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-right: 2%;
+        padding-left: 2%;
+
+    }
+}
 
 
 .bn1,
@@ -175,4 +221,33 @@ h1,
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
+}
+
+.addComment {
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.theButton {
+    margin-bottom: 30px;
+}
+
+.theDiv {
+    padding-bottom: 100px;
+}
+
+.buttonDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.captureButton {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.words {
+    margin-bottom: 20px;
 }
