@@ -7,7 +7,7 @@ function Picture() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [picture, setPicture] = useState([]);
 
-  let API_KEY = 'Zo8kqmCDwTNnP4Z5aMz5uyoVq6wR2BFGTT9tqNGe';
+ 
 
   useEffect(() => {
     fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
